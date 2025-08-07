@@ -1,0 +1,187 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Départ des Réseaux</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #444;
+    }
+
+    img.logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ff4747;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6em;
+      margin-top: 20px;
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 1.4em;
+      margin-top: 30px;
+      color: #ffd700;
+    }
+
+    .countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #00ffcc;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #aaa;
+    }
+
+    .contact {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #ccc;
+    }
+
+    a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    .motivation {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #00bfff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #009acd;
+    }
+
+    .quote {
+      margin-top: 15px;
+      font-style: italic;
+      color: #66ff99;
+    }
+
+    audio {
+      display: none;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo MrX" class="logo" />
+    <h1>Départ des Réseaux Sociaux</h1>
+    <p>
+      À partir du <span class="date">dimanche 10 août</span>, je quitte les réseaux sociaux pour une durée indéterminée.
+    </p>
+    <div class="countdown" id="countdown">Chargement...</div>
+    <p>
+      Cette décision est motivée par ma volonté de me concentrer pleinement sur mes objectifs personnels et professionnels.
+    </p>
+
+    <div class="motivation">
+      <button onclick="showQuote()">💡 Une dose de motivation</button>
+      <div class="quote" id="quoteArea"></div>
+    </div>
+
+    <div class="signature">
+      Merci pour votre compréhension. On se retrouvera, plus fort.
+    </div>
+
+    <div class="contact">
+      <p>📱 WhatsApp : <a href="https://wa.me/659703338" target="_blank">659703338</a></p>
+      <p>📨 Telegram : <a href="https://t.me/MrX237" target="_blank">@MrX237</a></p>
+    </div>
+  </div>
+
+  <!-- Musique de fond -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/01/audio_14e0c2a3fa.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
+
+  <!-- Countdown script -->
+  <script>
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("August 10, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "Le moment est arrivé.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML =
+        `${days}j ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Citation motivation -->
+  <script>
+    const quotes = [
+      "Travaille en silence, laisse ton succès faire le bruit.",
+      "Celui qui veut atteindre ses objectifs doit savoir se retirer pour mieux revenir.",
+      "Chaque jour loin de la distraction est un pas vers ta légende.",
+      "La discipline aujourd'hui, c'est la liberté demain.",
+      "Se retirer, c'est parfois avancer plus vite que tout le monde."
+    ];
+
+    function showQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quoteArea").innerText = random;
+    }
+  </script>
+
+  <footer>
+    Propulsé par <strong>MrX_trader.fx</strong>
+  </footer>
+</body>
+</html>
